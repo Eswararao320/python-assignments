@@ -1,0 +1,25 @@
+abhinav=input()
+anjali=input()
+if abhinav=="Rock":
+    if anjali=="Rock":
+        print("Tie")
+    elif anjali=="Paper":
+        print("Anjali Wins")
+    else:
+        print("Abhinav Wins")
+elif abhinav=="Paper":
+    if anjali=="Paper":
+        print("Tie")
+    elif anjali=="Rock":
+        print("Abhinav Wins")
+    else:
+        print("Anjali Wins")
+elif abhinav=="Scissors":
+    if anjali=="Scissors":
+        print("Tie")
+    elif anjali=="Paper":
+        print("Abhinav Wins")
+    else:
+        print("Anjali Wins")        
+        
+    

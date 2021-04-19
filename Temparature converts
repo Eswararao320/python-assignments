@@ -1,0 +1,26 @@
+string=input()
+length_of_string=len(string)
+num=float(string[:length_of_string-1])
+if string[length_of_string-1]=="C":
+    print(str(num)+"C")
+    fahrenheit=((9/5)*num)+32
+    print(str(fahrenheit)+"F")
+    kalvins=num+273
+    print(str(kalvins)+"K")
+    
+elif string[length_of_string-1]=="F":
+    Celsius=(num-32)*5/9
+    print(str((round(Celsius,2)))+"C")
+    print(str(num)+"F")
+    kalvin=(((num-32)*5)/9)+273.0
+    #print(kalvin)
+    print(str(round(kalvin,2))+"K")
+else:
+    celsius=num-273.0
+    print(str(celsius)+"C")
+    fahrenheit=(((num-273.0)*9)/5)+32
+    fahrenheit=round(fahrenheit,1)
+    print(str(fahrenheit)+"F")
+    print(str(num)+"K")
+
+

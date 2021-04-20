@@ -1,0 +1,11 @@
+string=input()
+digits=""
+letters=""
+for letter in string:
+    if letter.isdigit():
+        digits=digits+letter
+    else:
+        letters=letters+letter
+print(letters+digits)
+
+        

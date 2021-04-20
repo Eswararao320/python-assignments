@@ -1,0 +1,30 @@
+n=int(input())
+left_star=n
+right_star=n
+columns=n
+char=chr(65)
+for i in range(n):
+    for j in range(1,columns+1):
+        if left_star==j or right_star==j:
+            print(chr(65+i),end="")
+        else:
+            print(" ",end="")
+
+    left_star=left_star-1
+    right_star=right_star+1
+    columns+=1
+    print() 
+    
+columns=(n*2)-2
+left_star=2
+right_star=(n-1)*2
+for i in range(1,n):
+    for j in range(1,columns+1):
+        if left_star==j or right_star==j:
+            print(chr(65+(n-1-i)),end="")
+        else:
+            print(" ",end="")
+    left_star+=1    
+    right_star-=1
+    columns-=1
+    print()

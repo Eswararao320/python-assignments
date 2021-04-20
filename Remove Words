@@ -1,0 +1,9 @@
+words_list=input().split()
+n=int(input())
+result_string=[]
+for word in words_list:
+    if len(word)!=n:
+        result_string.append(word)
+result_string=" ".join(result_string)        
+print(result_string)        
+    

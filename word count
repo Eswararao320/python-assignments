@@ -1,0 +1,19 @@
+string=input().split()
+count=0
+count_dict={}
+for word in string:
+    count_dict[word]=0
+for word in count_dict:
+    for word_in_string in string: 
+        if word == word_in_string:
+            count+=1
+    print("{}: {}".format(word,count))
+    count=0
+
+    
+    
+    
+
+    
+
+    

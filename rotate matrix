@@ -1,0 +1,255 @@
+For Input:
+2
+1 2
+3 4
+R 90
+Q 0 0
+Q 0 1
+R 90
+Q 0 0
+U 0 0 6
+Q 1 1
+-1
+
+Initial Matrix
+1 2
+3 4
+
+For R 90, clockwise rotation by 90 degrees, the matrix will become
+3 1
+4 2
+
+For Q 0 0, print the element at row index 0 and column index 0 of A, which is 3. 
+For Q 0 1, print the element at row index 0 and column index 1 of A, which is 1. 
+
+Again for R 90, clockwise rotation by 90 degrees, the matrix will become
+4 3
+2 1
+
+For Q 0 0, print the element at row index 0 and column index 0 of A, which is 4. 
+
+For U 0 0 6, update the value at row index 0 and column index 0 in the initial matrix to 6. So the updated matrix will be,
+6 2
+3 4
+After updating, we need to rotate the matrix by sum of all rotation angles applied till now(i.e. R 90 and R 90 => 90 + 90 => 180 degrees in clockwise direction).
+After rotation the matrix will now become
+4 3
+2 6
+
+Next for Q 1 1, print the element at row index 1 and column index 1 of A, which is 6. 
+So the output should be
+3
+1
+4
+6
+
+
+ANS::::-------------------------------------------------------------
+
+def rotate_clockwise(matrix):
+    list_a=[]
+    result_matrix=[]
+    for j in range(n) :
+        for i in range(n - 1, -1, -1) :
+            list_a.append(matrix[i][j])
+        result_matrix.append(list_a)
+        list_a=[]
+    return result_matrix
+def update_list(matrix,a,b,replace_value):
+    for i in range(n):
+        for j in range(n):
+            if i==a and j==b:
+                matrix[i][j]=replace_value
+    return matrix
+    
+n=int(input())
+count=0
+matrix=[]
+for i in range(n):
+    list_a=list(map(int,input().split()))
+    matrix.append(list_a)
+        
+OrgMatrix=matrix
+initial_matrix=OrgMatrix
+list_a=[0]
+sum_of_rotations=0
+while list_a[0]!="-1":
+    list_a=input().split()
+    if list_a[0]=="R":
+        sum_of_rotations=sum_of_rotations+int(list_a[1])
+
+        iterate=int(list_a[1])//90
+        for i in range(iterate):
+            return_matrix=[]
+            return_matrix=(rotate_clockwise(matrix))
+            matrix=return_matrix
+    elif list_a[0]=="U":
+        if count==0:
+            index_a=int(list_a[1])
+            index_b=int(list_a[2])
+            replace=int(list_a[3])
+            iterate=sum_of_rotations//90
+            return_matrix=update_list(OrgMatrix,index_a,index_b,replace)
+            OrgMatrix=return_matrix
+            for i in range(iterate):
+                return_matrix=[]
+                return_matrix=(rotate_clockwise(OrgMatrix))
+                OrgMatrix=return_matrix
+            matrix=OrgMatrix
+            count+=1
+        else:
+            OrgMatrix=initial_matrix
+            index_a=int(list_a[1])
+            index_b=int(list_a[2])
+            replace=int(list_a[3])
+            iterate=sum_of_rotations//90
+            return_matrix=update_list(OrgMatrix,index_a,index_b,replace)
+            OrgMatrix=return_matrix
+            for i in range(iterate):
+                return_matrix=[]
+                return_matrix=(rotate_clockwise(OrgMatrix))
+                OrgMatrix=return_matrix
+            matrix=OrgMatrix
+    elif list_a[0]=="Q":
+        a=int(list_a[1])
+        b=int(list_a[2])
+        print(matrix[a][b]) 
+    def rotate_clockwise(matrix):
+    list_a=[]
+    result_matrix=[]
+    for j in range(n) :
+        for i in range(n - 1, -1, -1) :
+            list_a.append(matrix[i][j])
+        result_matrix.append(list_a)
+        list_a=[]
+    return result_matrix
+def update_list(matrix,a,b,replace_value):
+    for i in range(n):
+        for j in range(n):
+            if i==a and j==b:
+                matrix[i][j]=replace_value
+    return matrix
+    
+n=int(input())
+count=0
+matrix=[]
+for i in range(n):
+    list_a=list(map(int,input().split()))
+    matrix.append(list_a)
+        
+OrgMatrix=matrix
+initial_matrix=OrgMatrix
+list_a=[0]
+sum_of_rotations=0
+while list_a[0]!="-1":
+    list_a=input().split()
+    if list_a[0]=="R":
+        sum_of_rotations=sum_of_rotations+int(list_a[1])
+
+        iterate=int(list_a[1])//90
+        for i in range(iterate):
+            return_matrix=[]
+            return_matrix=(rotate_clockwise(matrix))
+            matrix=return_matrix
+    elif list_a[0]=="U":
+        if count==0:
+            index_a=int(list_a[1])
+            index_b=int(list_a[2])
+            replace=int(list_a[3])
+            iterate=sum_of_rotations//90
+            return_matrix=update_list(OrgMatrix,index_a,index_b,replace)
+            OrgMatrix=return_matrix
+            for i in range(iterate):
+                return_matrix=[]
+                return_matrix=(rotate_clockwise(OrgMatrix))
+                OrgMatrix=return_matrix
+            matrix=OrgMatrix
+            count+=1
+        else:
+            OrgMatrix=initial_matrix
+            index_a=int(list_a[1])
+            index_b=int(list_a[2])
+            replace=int(list_a[3])
+            iterate=sum_of_rotations//90
+            return_matrix=update_list(OrgMatrix,index_a,index_b,replace)
+            OrgMatrix=return_matrix
+            for i in range(iterate):
+                return_matrix=[]
+                return_matrix=(rotate_clockwise(OrgMatrix))
+                OrgMatrix=return_matrix
+            matrix=OrgMatrix
+    elif list_a[0]=="Q":
+        a=int(list_a[1])
+        b=int(list_a[2])
+        print(matrix[a][b])     
+def rotate_clockwise(matrix):
+    list_a=[]
+    result_matrix=[]
+    for j in range(n) :
+        for i in range(n - 1, -1, -1) :
+            list_a.append(matrix[i][j])
+        result_matrix.append(list_a)
+        list_a=[]
+    return result_matrix
+def update_list(matrix,a,b,replace_value):
+    for i in range(n):
+        for j in range(n):
+            if i==a and j==b:
+                matrix[i][j]=replace_value
+    return matrix
+    
+n=int(input())
+count=0
+matrix=[]
+for i in range(n):
+    list_a=list(map(int,input().split()))
+    matrix.append(list_a)
+        
+OrgMatrix=matrix
+initial_matrix=OrgMatrix
+list_a=[0]
+sum_of_rotations=0
+while list_a[0]!="-1":
+    list_a=input().split()
+    if list_a[0]=="R":
+        sum_of_rotations=sum_of_rotations+int(list_a[1])
+
+        iterate=int(list_a[1])//90
+        for i in range(iterate):
+            return_matrix=[]
+            return_matrix=(rotate_clockwise(matrix))
+            matrix=return_matrix
+    elif list_a[0]=="U":
+        if count==0:
+            index_a=int(list_a[1])
+            index_b=int(list_a[2])
+            replace=int(list_a[3])
+            iterate=sum_of_rotations//90
+            return_matrix=update_list(OrgMatrix,index_a,index_b,replace)
+            OrgMatrix=return_matrix
+            for i in range(iterate):
+                return_matrix=[]
+                return_matrix=(rotate_clockwise(OrgMatrix))
+                OrgMatrix=return_matrix
+            matrix=OrgMatrix
+            count+=1
+        else:
+            OrgMatrix=initial_matrix
+            index_a=int(list_a[1])
+            index_b=int(list_a[2])
+            replace=int(list_a[3])
+            iterate=sum_of_rotations//90
+            return_matrix=update_list(OrgMatrix,index_a,index_b,replace)
+            OrgMatrix=return_matrix
+            for i in range(iterate):
+                return_matrix=[]
+                return_matrix=(rotate_clockwise(OrgMatrix))
+                OrgMatrix=return_matrix
+            matrix=OrgMatrix
+    elif list_a[0]=="Q":
+        a=int(list_a[1])
+        b=int(list_a[2])
+        print(matrix[a][b])     
+                    
+        
+                
